@@ -3,37 +3,37 @@
       <h1 class="text-2xl font-bold mb-4">Créer un article</h1>
       <form @submit.prevent="handleSubmit">
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Titre</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Titre</label>
           <input
             v-model="form.title"
             type="text"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           />
           <span v-if="form.errors.title" class="text-red-500 text-sm">{{ form.errors.title }}</span>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Contenu</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Contenu</label>
           <input id="trix-content" type="hidden" v-model="form.content">
-          <trix-editor input="trix-content" @trix-change="handleContentChange"></trix-editor>
+          <trix-editor input="trix-content" @trix-change="handleContentChange" class="dark:bg-gray-700 dark:text-white"></trix-editor>
           <span v-if="form.errors.content" class="text-red-500 text-sm">{{ form.errors.content }}</span>
         </div>
         <div class="mb-4">
-          <label class="block text-sm font-medium text-gray-700">Statut</label>
+          <label class="block text-sm font-medium text-gray-700 dark:text-gray-300">Statut</label>
           <select
             v-model="form.status"
-            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500"
+            class="mt-1 block w-full border-gray-300 rounded-md shadow-sm focus:ring-indigo-500 focus:border-indigo-500 dark:bg-gray-700 dark:border-gray-600 dark:text-white"
           >
             <option value="draft">Brouillon</option>
             <option value="published">Publié</option>
           </select>
         </div>
         <div class="mt-4">
-          <h2 class="text-lg font-semibold">Aperçu</h2>
-          <div class="prose border p-4" v-html="preview"></div>
+          <h2 class="text-lg font-semibold text-gray-900 dark:text-white">Aperçu</h2>
+          <div class="prose dark:prose-invert border p-4" v-html="preview"></div>
         </div>
         <button
           type="submit"
-          class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700"
+          class="mt-4 bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-500"
           :disabled="form.processing"
         >
           Créer
@@ -77,5 +77,9 @@
   @import 'trix/dist/trix.css';
   .prose {
       max-width: none;
+  }
+  .dark .trix-content {
+      background-color: #374151;
+      color: #fff;
   }
   </style>

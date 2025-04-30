@@ -5,13 +5,14 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Inertia\Inertia;
+use App\Http\Controllers\Controller;
 
 class PostController extends Controller
 {
-    public function __construct()
-    {
-        $this->middleware('auth')->except(['index']);
-    }
+    // public function __construct()
+    // {
+    //     $this->middleware('auth')->except(['index']);
+    // }
 
     public function index()
     {
