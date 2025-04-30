@@ -20,17 +20,11 @@ Route::get('/posts', [PostController::class, 'index'])->name('posts.index');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', function () {
-        try {
-            return Inertia::render('Dashboard', [
-                'posts' => Post::with('user')
-                    ->where('user_id', auth()->id())
-                    ->paginate(10),
-            ]);
-        } catch (\Exception $e) {
-
-            console.error('Erreur Dashboard: ' . $e->getMessage());
-            return response()->json(['error' => $e->getMessage()], 500);
-        }
+        return Inertia::render('Dashboard', [
+            'posts' => Post::with('user')
+                ->where('user_id', auth()->id())
+                ->paginate(10),
+        ]);
     })->name('dashboard');
 
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
