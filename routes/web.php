@@ -28,7 +28,7 @@ Route::middleware(['auth', 'verified'])->group(function () {
             ]);
         } catch (\Exception $e) {
 
-            coconsole.error('Erreur Dashboard: ' . $e->getMessage());
+            console.error('Erreur Dashboard: ' . $e->getMessage());
             return response()->json(['error' => $e->getMessage()], 500);
         }
     })->name('dashboard');
