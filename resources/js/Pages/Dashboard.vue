@@ -31,7 +31,7 @@ const truncate = (text, length) => {
                                 :href="route('posts.create')"
                                 class="bg-indigo-600 text-white px-4 py-2 rounded-md hover:bg-indigo-700 dark:hover:bg-indigo-500"
                             >
-                                Créer un nouvel articl
+                                Créer un nouvel article
                             </Link>
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Mes articles</h3>
