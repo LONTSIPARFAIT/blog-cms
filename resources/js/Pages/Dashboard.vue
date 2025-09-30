@@ -36,7 +36,7 @@ const truncate = (text, length) => {
                         </div>
                         <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4">Mes articles</h3>
                         <div v-if="posts.data.length === 0" class="text-gray-500 dark:text-gray-400">
-                            Vous n'avez aucun article pour le moment
+                            Vous n'avez aucun article pour le moment.
                         </div>
                         <div v-else>
                             <div v-for="post in posts.data" :key="post.id" class="bg-gray-50 dark:bg-gray-700 p-4 rounded-md mb-4">
